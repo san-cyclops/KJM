@@ -121,3 +121,14 @@ profile-*
 
 # vscode
 .vscode
+
+# SSH Keys and certificates (SECURITY)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Deployment secrets
+secrets/
+.secrets

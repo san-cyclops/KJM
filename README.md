@@ -199,6 +199,37 @@ Comprehensive personal information including:
 
 Related family member records with relationship tracking.
 
+## Deployment
+
+This application includes an automated CI/CD pipeline for deployment to AWS EC2. See [DEPLOYMENT.md](DEPLOYMENT.md) for complete setup instructions.
+
+### Quick Deployment
+
+1. **Server Setup** (one-time):
+
+   ```bash
+   ssh -i jummaMasjid.pem ubuntu@13.203.77.68
+   wget https://raw.githubusercontent.com/san-cyclops/KJM/main/scripts/server-setup.sh
+   chmod +x server-setup.sh
+   ./server-setup.sh
+   ```
+
+2. **Configure GitHub Secrets**:
+
+   - Add `SSH_PRIVATE_KEY` to repository secrets
+
+3. **Deploy**:
+   ```bash
+   git push origin main
+   ```
+
+### Production URL
+
+- **Application**: http://13.203.77.68
+- **Server**: AWS EC2 Ubuntu 20.04
+- **Process Manager**: PM2
+- **Web Server**: Nginx
+
 ## Development
 
 ### Scripts
