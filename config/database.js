@@ -1,12 +1,12 @@
 const mysql = require("mysql2");
 
-// Database configuration
+// Database configuration - uses environment variables for production
 const dbConfig = {
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "Mihinula@123",
-  database: "kjm_admin_db",
+  host: process.env.DB_HOST || "localhost",
+  port: process.env.DB_PORT || 3306,
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "Mihinula@123",
+  database: process.env.DB_NAME || "kjm_admin_db",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

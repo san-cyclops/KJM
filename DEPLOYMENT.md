@@ -6,22 +6,36 @@ This document explains how to set up and use the CI/CD pipeline for the KJM Admi
 
 The deployment pipeline uses GitHub Actions to automatically deploy your application to an AWS EC2 server whenever code is pushed to the release branch.
 
+## AWS Infrastructure
+
+### EC2 Server:
+- **Instance**: Ubuntu 20.04 LTS
+- **IP Address**: 13.232.39.214
+- **SSH Access**: `ssh -i jummaMasjid.pem ubuntu@13.232.39.214`
+
+### RDS Database:
+- **Engine**: MySQL 8.0
+- **Database Name**: masjid
+- **Endpoint**: masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com
+- **Port**: 3306
+- **Region**: ap-south-1 (Asia Pacific - Mumbai)
+
 ## Pipeline Architecture
 
 ```
-GitHub Repository → GitHub Actions → AWS EC2 Server
-     ↓                    ↓              ↓
-  Code Push         Tests & Build    Deploy & Start
+GitHub Repository → GitHub Actions → AWS EC2 Server → AWS RDS MySQL
+     ↓                    ↓              ↓              ↓
+  Code Push         Tests & Build    Deploy & Start   Database Operations
 ```
 
 ## Setup Instructions
 
 ### 1. Server Setup (One-time)
 
-First, prepare your EC2 server by running the setup script:
+First, prepare your AWS EC2 server by running the setup script:
 
 ```bash
-ssh -i jummaMasjid.pem ubuntu@13.203.77.68
+ssh -i jummaMasjid.pem ubuntu@13.232.39.214
 wget https://raw.githubusercontent.com/san-cyclops/KJM/main/scripts/server-setup.sh
 chmod +x server-setup.sh
 ./server-setup.sh
@@ -46,8 +60,10 @@ Add the following secrets to your GitHub repository:
 
 #### Optional Secrets (if using different database credentials):
 
-- **DB_HOST**: Database host (default: localhost)
+- **DB_HOST**: Database host (default: masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com)
 - **DB_USER**: Database username (default: root)
+- **DB_PASSWORD**: Database password (default: Mihinula@123)
+- **DB_NAME**: Database name (default: masjid)
 - **DB_PASSWORD**: Database password (default: Mihinula@123)
 - **DB_NAME**: Database name (default: kjm_admin_db)
 
@@ -100,15 +116,15 @@ git push origin release
 
 After successful deployment:
 
-- **Main Application**: http://13.203.77.68
-- **Health Check**: http://13.203.77.68/health
+- **Main Application**: http://13.232.39.214
+- **Health Check**: http://13.232.39.214/health
 
 ## Monitoring Commands
 
 SSH into your server to monitor the application:
 
 ```bash
-ssh -i jummaMasjid.pem ubuntu@13.203.77.68
+ssh -i jummaMasjid.pem ubuntu@13.232.39.214
 
 # Check application status
 pm2 status
@@ -163,7 +179,7 @@ sudo nginx -t
 If automatic deployment fails, you can deploy manually:
 
 ```bash
-ssh -i jummaMasjid.pem ubuntu@13.203.77.68
+ssh -i jummaMasjid.pem ubuntu@13.232.39.214
 cd /home/ubuntu/kjm-admin
 git clone https://github.com/san-cyclops/KJM.git manual-deploy
 cd manual-deploy

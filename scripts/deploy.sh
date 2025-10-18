@@ -70,7 +70,12 @@ module.exports = {
     max_memory_restart: '1G',
     env: {
       NODE_ENV: 'production',
-      PORT: 3000
+      PORT: 3000,
+      DB_HOST: 'masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com',
+      DB_PORT: 3306,
+      DB_NAME: 'masjid',
+      DB_USER: 'root',
+      DB_PASSWORD: 'Mihinula@123'
     },
     error_file: '/home/ubuntu/kjm-admin/logs/err.log',
     out_file: '/home/ubuntu/kjm-admin/logs/out.log',
@@ -102,7 +107,7 @@ if [ ! -f "/etc/nginx/sites-available/kjm-admin" ]; then
     sudo tee /etc/nginx/sites-available/kjm-admin > /dev/null << 'NGINXEOF'
 server {
     listen 80;
-    server_name 13.203.77.68;
+    server_name 13.232.39.214;
     
     # Security headers
     add_header X-Frame-Options "SAMEORIGIN" always;
@@ -196,7 +201,7 @@ echo "=========================================="
 echo "Deployment completed successfully!"
 echo "=========================================="
 echo "Application: KJM Admin"
-echo "URL: http://13.203.77.68"
+echo "URL: http://13.232.39.214"
 echo "Status: $(pm2 jlist | jq -r '.[] | select(.name=="kjm-admin") | .pm2_env.status')"
 echo "PID: $(pm2 jlist | jq -r '.[] | select(.name=="kjm-admin") | .pid')"
 echo "Memory: $(pm2 jlist | jq -r '.[] | select(.name=="kjm-admin") | .monit.memory')"

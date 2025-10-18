@@ -46,9 +46,9 @@ jobs:
       - name: Add server to known hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H 13.203.77.68 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 13.232.39.214 >> ~/.ssh/known_hosts
 
       - name: Deploy to server
         run: |
-          scp -r ./* ubuntu@13.203.77.68:/tmp/kjm-deploy/
-          ssh ubuntu@13.203.77.68 'bash /tmp/kjm-deploy/scripts/deploy.sh'
+          scp -r ./* ubuntu@13.232.39.214:/tmp/kjm-deploy/
+          ssh ubuntu@13.232.39.214 'bash /tmp/kjm-deploy/scripts/deploy.sh'

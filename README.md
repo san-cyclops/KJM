@@ -208,7 +208,7 @@ This application includes an automated CI/CD pipeline for deployment to AWS EC2.
 1. **Server Setup** (one-time):
 
    ```bash
-   ssh -i jummaMasjid.pem ubuntu@13.203.77.68
+   ssh -i jummaMasjid.pem ubuntu@13.232.39.214
    wget https://raw.githubusercontent.com/san-cyclops/KJM/main/scripts/server-setup.sh
    chmod +x server-setup.sh
    ./server-setup.sh
@@ -225,8 +225,9 @@ This application includes an automated CI/CD pipeline for deployment to AWS EC2.
 
 ### Production URL
 
-- **Application**: http://13.203.77.68
+- **Application**: http://13.232.39.214
 - **Server**: AWS EC2 Ubuntu 20.04
+- **Database**: AWS RDS MySQL (masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com)
 - **Process Manager**: PM2
 - **Web Server**: Nginx
 
