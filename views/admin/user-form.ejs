@@ -1,0 +1,162 @@
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="bi bi-<%= isEdit ? 'pencil' : 'person-plus' %>"></i>
+                    <%= isEdit ? 'Edit User' : 'Create New User' %>
+                </h1>
+                <a href="/admin/users" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Users
+                </a>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                <i class="bi bi-person-fill"></i> User Information
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <% if (error) { %>
+                                <div class="alert alert-danger" role="alert">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                    <%= error %>
+                                </div>
+                                <% } %>
+
+                                    <form method="POST"
+                                        action="<%= isEdit ? '/admin/users/' + formUser.id + '?_method=PUT' : '/admin/users' %>">
+                                        <% if (isEdit) { %>
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <% } %>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="username" class="form-label">Username <span
+                                                                    class="text-danger">*</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text"><i
+                                                                        class="bi bi-person"></i></span>
+                                                                <input type="text" class="form-control" id="username"
+                                                                    name="username"
+                                                                    value="<%= formUser ? formUser.username : '' %>"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="email" class="form-label">Email <span
+                                                                    class="text-danger">*</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text"><i
+                                                                        class="bi bi-envelope"></i></span>
+                                                                <input type="email" class="form-control" id="email"
+                                                                    name="email"
+                                                                    value="<%= formUser ? formUser.email : '' %>"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="password" class="form-label">
+                                                                Password
+                                                                <% if (!isEdit) { %><span class="text-danger">*</span>
+                                                                    <% } %>
+                                                                        <% if (isEdit) { %><small
+                                                                                class="text-muted">(leave blank to keep
+                                                                                current)</small>
+                                                                            <% } %>
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text"><i
+                                                                        class="bi bi-lock"></i></span>
+                                                                <input type="password" class="form-control"
+                                                                    id="password" name="password" <% if (!isEdit) {
+                                                                    %>required<% } %>>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="role" class="form-label">Role <span
+                                                                    class="text-danger">*</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text"><i
+                                                                        class="bi bi-person-badge"></i></span>
+                                                                <select class="form-select" id="role" name="role"
+                                                                    required>
+                                                                    <option value="">Select Role</option>
+                                                                    <option value="user" <%=formUser &&
+                                                                        formUser.role==='user' ? 'selected' : '' %>>User
+                                                                    </option>
+                                                                    <option value="admin" <%=formUser &&
+                                                                        formUser.role==='admin' ? 'selected' : '' %>
+                                                                        >Admin</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                            <a href="/admin/users" class="btn btn-secondary me-md-2">
+                                                                <i class="bi bi-x-circle"></i> Cancel
+                                                            </a>
+                                                            <button type="submit" class="btn btn-primary">
+                                                                <i
+                                                                    class="bi bi-<%= isEdit ? 'check-circle' : 'plus-circle' %>"></i>
+                                                                <%= isEdit ? 'Update User' : 'Create User' %>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    </form>
+                        </div>
+                    </div>
+
+                    <% if (isEdit && formUser) { %>
+                        <div class="card shadow mt-4">
+                            <div class="card-header">
+                                <h6 class="m-0 font-weight-bold text-info">
+                                    <i class="bi bi-info-circle"></i> User Details
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>User ID:</strong> #<%= formUser.id %>
+                                        </p>
+                                        <p><strong>Created:</strong>
+                                            <%= new Date(formUser.created_at).toLocaleString() %>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Current Role:</strong>
+                                            <span
+                                                class="badge bg-<%= formUser.role === 'admin' ? 'primary' : 'secondary' %>">
+                                                <%= formUser.role.toUpperCase() %>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

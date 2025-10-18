@@ -1,0 +1,312 @@
+<!-- Content Header -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info">
+                        <i class="fas fa-cog"></i>
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">System Status</span>
+                        <span class="info-box-number">
+                            <i class="fas fa-check-circle text-success"></i>
+                            Online
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success">
+                        <i class="fas fa-database"></i>
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Database</span>
+                        <span class="info-box-number">
+                            <i class="fas fa-check-circle text-success"></i>
+                            Connected
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning">
+                        <i class="fas fa-user-shield"></i>
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Your Role</span>
+                        <span class="info-box-number">
+                            <span class="badge bg-<%= user.role === 'admin' ? 'primary' : 'secondary' %>">
+                                <%= user.role.toUpperCase() %>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger">
+                        <i class="fas fa-clock"></i>
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Session</span>
+                        <span class="info-box-number" id="sessionTime">
+                            Active
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <div class="col-md-8">
+                <!-- Quick Actions Card -->
+                <div class="card">
+                    <div class="card-header border-transparent">
+                        <h3 class="card-title">
+                            <i class="fas fa-bolt me-1"></i>
+                            Quick Actions
+                        </h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <% if (user.role==='admin' ) { %>
+                                    <tr>
+                                        <td>
+                                            <a href="/admin/users" class="text-decoration-none">
+                                                <i class="fas fa-users text-primary"></i>
+                                                <strong class="ms-2">User Management</strong>
+                                            </a>
+                                        </td>
+                                        <td class="text-muted">
+                                            Manage user accounts and permissions
+                                        </td>
+                                        <td>
+                                            <a href="/admin/users" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="/admin/users/create" class="text-decoration-none">
+                                                <i class="fas fa-user-plus text-success"></i>
+                                                <strong class="ms-2">Add New User</strong>
+                                            </a>
+                                        </td>
+                                        <td class="text-muted">
+                                            Create a new user account
+                                        </td>
+                                        <td>
+                                            <a href="/admin/users/create" class="btn btn-sm btn-success">
+                                                <i class="fas fa-plus"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="text-decoration-none">
+                                                    <i class="fas fa-chart-line text-info"></i>
+                                                    <strong class="ms-2">Analytics</strong>
+                                                </a>
+                                            </td>
+                                            <td class="text-muted">
+                                                View system analytics and reports
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-secondary">Coming Soon</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="text-decoration-none">
+                                                    <i class="fas fa-cog text-warning"></i>
+                                                    <strong class="ms-2">Settings</strong>
+                                                </a>
+                                            </td>
+                                            <td class="text-muted">
+                                                Configure system settings
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-secondary">Coming Soon</span>
+                                            </td>
+                                        </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right col -->
+            <div class="col-md-4">
+                <!-- User Profile Card -->
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <i class="fas fa-user-circle" style="font-size: 4rem; color: #007bff;"></i>
+                        </div>
+                        <h3 class="profile-username text-center">
+                            <%= user.username %>
+                        </h3>
+                        <p class="text-muted text-center">
+                            <span class="badge bg-<%= user.role === 'admin' ? 'primary' : 'secondary' %>">
+                                <%= user.role.toUpperCase() %>
+                            </span>
+                        </p>
+
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                                <b>User ID</b> <span class="float-end">#<%= user.id %></span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Email</b> <span class="float-end">
+                                    <%= user.email %>
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Status</b>
+                                <span class="float-end">
+                                    <i class="fas fa-circle text-success"></i>
+                                    Online
+                                </span>
+                            </li>
+                        </ul>
+
+                        <a href="/logout" class="btn btn-danger btn-block w-100">
+                            <i class="fas fa-sign-out-alt me-1"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+
+                <!-- System Info Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-info-circle me-1"></i>
+                            System Information
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <i class="fas fa-server" style="font-size: 2rem; color: #28a745;"></i>
+                                <div class="mt-2">
+                                    <small class="text-muted">Server</small>
+                                    <div class="font-weight-bold">Online</div>
+                                </div>
+                            </div>
+                            <div class="col-6 text-center">
+                                <i class="fas fa-database" style="font-size: 2rem; color: #17a2b8;"></i>
+                                <div class="mt-2">
+                                    <small class="text-muted">Database</small>
+                                    <div class="font-weight-bold">MySQL</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="bi bi-info-circle"></i> Quick Actions
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <% if (user.role==='admin' ) { %>
+                        <a href="/admin/users" class="list-group-item list-group-item-action">
+                            <i class="bi bi-people text-primary"></i>
+                            <strong>Manage Users</strong>
+                            <p class="mb-1">Add, edit, or remove user accounts</p>
+                        </a>
+                        <a href="/admin/users/create" class="list-group-item list-group-item-action">
+                            <i class="bi bi-person-plus text-success"></i>
+                            <strong>Create New User</strong>
+                            <p class="mb-1">Add a new user to the system</p>
+                        </a>
+                        <% } %>
+                            <a href="/logout" class="list-group-item list-group-item-action">
+                                <i class="bi bi-box-arrow-right text-danger"></i>
+                                <strong>Logout</strong>
+                                <p class="mb-1">End your current session</p>
+                            </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="bi bi-person-circle"></i> Account Information
+                </h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Username:</strong></td>
+                        <td>
+                            <%= user.username %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email:</strong></td>
+                        <td>
+                            <%= user.email %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Role:</strong></td>
+                        <td>
+                            <span class="badge bg-<%= user.role === 'admin' ? 'primary' : 'secondary' %>">
+                                <%= user.role.toUpperCase() %>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>User ID:</strong></td>
+                        <td>#<%= user.id %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
