@@ -7,9 +7,9 @@ echo "🗄️ Setting up KJM Admin Database on AWS RDS..."
 echo "=================================================="
 
 # Database connection parameters
-DB_HOST="masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com"
+DB_HOST="kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com"
 DB_PORT="3306"
-DB_USER="root"
+DB_USER="admin"
 DB_PASSWORD="NewSecurePassword123!"
 DB_NAME="masjid"
 

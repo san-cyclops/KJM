@@ -15,10 +15,10 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: 3000,
-        DB_HOST: "masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com",
+        DB_HOST: "kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com",
         DB_PORT: 3306,
         DB_NAME: "masjid",
-        DB_USER: "root",
+        DB_USER: "admin",
         DB_PASSWORD: "NewSecurePassword123!",
       },
       error_file: "./logs/err.log",

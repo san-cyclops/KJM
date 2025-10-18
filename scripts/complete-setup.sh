@@ -61,7 +61,7 @@ npm install --production
 
 # Test database connection
 echo "🗄️ Testing RDS database connection..."
-mysql -h masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com -P 3306 -u root -p'NewSecurePassword123!' -e "SHOW DATABASES;" || {
+mysql -h kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p'NewSecurePassword123!' -e "SHOW DATABASES;" || {
     echo "❌ Database connection failed. Please check RDS configuration."
     echo "Make sure:"
     echo "1. RDS instance is running"
@@ -83,10 +83,10 @@ module.exports = {
     env: {
       NODE_ENV: 'production',
       PORT: 3000,
-      DB_HOST: 'masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com',
+      DB_HOST: 'kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com',
       DB_PORT: 3306,
       DB_NAME: 'masjid',
-      DB_USER: 'root',
+      DB_USER: 'admin',
       DB_PASSWORD: 'NewSecurePassword123!'
     },
     error_file: '/home/ubuntu/dev/logs/err.log',

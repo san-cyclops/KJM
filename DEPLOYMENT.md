@@ -18,7 +18,7 @@ The deployment pipeline uses GitHub Actions to automatically deploy your applica
 
 - **Engine**: MySQL 8.0
 - **Database Name**: masjid
-- **Endpoint**: masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com
+- **Endpoint**: kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com
 - **Port**: 3306
 - **Region**: ap-south-1 (Asia Pacific - Mumbai)
 
