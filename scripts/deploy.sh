@@ -75,7 +75,7 @@ module.exports = {
       DB_PORT: 3306,
       DB_NAME: 'masjid',
       DB_USER: 'root',
-      DB_PASSWORD: 'Mihinula@123'
+      DB_PASSWORD: 'NewSecurePassword123!'
     },
     error_file: '/home/ubuntu/kjm-admin/logs/err.log',
     out_file: '/home/ubuntu/kjm-admin/logs/out.log',

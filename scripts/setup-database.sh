@@ -10,7 +10,7 @@ echo "=================================================="
 DB_HOST="masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com"
 DB_PORT="3306"
 DB_USER="root"
-DB_PASSWORD="Mihinula@123"
+DB_PASSWORD="NewSecurePassword123!"
 DB_NAME="masjid"
 
 echo "📡 Testing database connection..."

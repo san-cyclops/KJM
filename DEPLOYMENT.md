@@ -9,11 +9,13 @@ The deployment pipeline uses GitHub Actions to automatically deploy your applica
 ## AWS Infrastructure
 
 ### EC2 Server:
+
 - **Instance**: Ubuntu 20.04 LTS
 - **IP Address**: 13.232.39.214
 - **SSH Access**: `ssh -i jummaMasjid.pem ubuntu@13.232.39.214`
 
 ### RDS Database:
+
 - **Engine**: MySQL 8.0
 - **Database Name**: masjid
 - **Endpoint**: masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com
@@ -62,10 +64,8 @@ Add the following secrets to your GitHub repository:
 
 - **DB_HOST**: Database host (default: masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com)
 - **DB_USER**: Database username (default: root)
-- **DB_PASSWORD**: Database password (default: Mihinula@123)
+- **DB_PASSWORD**: Database password (default: NewSecurePassword123!)
 - **DB_NAME**: Database name (default: masjid)
-- **DB_PASSWORD**: Database password (default: Mihinula@123)
-- **DB_NAME**: Database name (default: kjm_admin_db)
 
 ### 3. Deployment Process
 
@@ -222,12 +222,12 @@ ecosystem.config.js         # PM2 configuration
 The application supports the following environment variables:
 
 ```bash
-NODE_ENV=production         # Application environment
-PORT=3000                  # Application port
-DB_HOST=localhost          # Database host
-DB_USER=root              # Database username
-DB_PASSWORD=Mihinula@123  # Database password
-DB_NAME=kjm_admin_db      # Database name
+NODE_ENV=production                              # Application environment
+PORT=3000                                       # Application port
+DB_HOST=masjid.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com  # AWS RDS Database host
+DB_USER=root                                    # Database username
+DB_PASSWORD=NewSecurePassword123!               # Database password
+DB_NAME=masjid                                  # Database name
 ```
 
 ## Performance Optimization
