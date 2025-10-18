@@ -6,11 +6,13 @@ A Node.js web application with login authentication, admin panel, and MySQL data
 
 - **User Authentication**: Secure login system with session management
 - **Admin Dashboard**: Clean and responsive admin interface
+- **Personal Information Management**: Complete CRUD operations for personal records with 23 fields
+- **Family Members Management**: Related data for family relationships
 - **User Management**: Complete CRUD operations for user accounts
-- **Data Grid View**: Interactive table for viewing and managing users
+- **Data Grid View**: Interactive tables for viewing and managing data
 - **Role-based Access**: Admin and User roles with appropriate permissions
 - **MySQL Integration**: Full database connectivity with connection pooling
-- **Responsive Design**: Bootstrap-based UI that works on all devices
+- **Responsive Design**: AdminLTE-inspired UI that works on all devices
 
 ## Prerequisites
 
@@ -82,7 +84,9 @@ KJM/
 ├── middleware/
 │   └── auth.js          # Authentication middleware
 ├── models/
-│   └── User.js          # User data model
+│   ├── User.js          # User data model
+│   ├── PersonalInfo.js  # Personal information model
+│   └── FamilyMember.js  # Family members model
 ├── routes/
 │   ├── auth.js          # Authentication routes
 │   └── admin.js         # Admin panel routes
@@ -110,6 +114,14 @@ KJM/
 - Role-based access control
 - Automatic logout after 24 hours
 
+### Personal Information Management
+
+- **23 comprehensive fields** including personal details, address, family info
+- **Special needs tracking** for children
+- **Non-related people information**
+- **Sandha/donation details** with membership info
+- **Family members** with relationship management
+
 ### User Management (Admin Only)
 
 - **Create**: Add new users with username, email, password, and role
@@ -127,11 +139,12 @@ KJM/
 
 ### User Interface
 
-- Responsive Bootstrap-based design
-- Interactive data grid with action buttons
+- AdminLTE-inspired responsive design
+- Interactive data grids with proper styling
 - Form validation with error messages
 - Success/error notifications
 - Mobile-friendly navigation
+- Professional dark theme tables
 
 ## API Endpoints
 
@@ -145,12 +158,14 @@ KJM/
 ### Admin Panel (Requires Authentication)
 
 - `GET /admin/dashboard` - Admin dashboard
+- `GET /admin/personal-info` - Personal information management
+- `GET /admin/personal-info/create` - Create personal info form
+- `POST /admin/personal-info` - Create new personal record
+- `GET /admin/personal-info/edit/:id` - Edit personal info form
+- `PUT /admin/personal-info/edit/:id` - Update personal record
+- `DELETE /admin/personal-info/delete/:id` - Delete personal record
+- `GET /admin/personal-info/:id/family-members` - Family members management
 - `GET /admin/users` - User management grid (Admin only)
-- `GET /admin/users/create` - Create user form (Admin only)
-- `POST /admin/users` - Create new user (Admin only)
-- `GET /admin/users/:id/edit` - Edit user form (Admin only)
-- `PUT /admin/users/:id` - Update user (Admin only)
-- `DELETE /admin/users/:id` - Delete user (Admin only)
 
 ## Database Schema
 
@@ -167,6 +182,22 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 ```
+
+### Personal Info Table (23 fields)
+
+Comprehensive personal information including:
+
+- Basic details (name, address, mobile, ID)
+- Family information (civil status, spouse, children)
+- Residential details
+- Professional information
+- Special needs tracking
+- Non-related people information
+- Sandha/donation details
+
+### Family Members Table
+
+Related family member records with relationship tracking.
 
 ## Development
 
