@@ -45,13 +45,13 @@ sudo ufw status
 
 # Create application directory
 echo "📁 Creating application directory..."
-sudo mkdir -p /home/ubuntu/kjm-admin
-sudo mkdir -p /home/ubuntu/kjm-admin/logs
-sudo chown -R ubuntu:ubuntu /home/ubuntu/kjm-admin
+sudo mkdir -p /home/ubuntu/dev
+sudo mkdir -p /home/ubuntu/dev/logs
+sudo chown -R ubuntu:ubuntu /home/ubuntu/dev
 
 # Clone the application
 echo "📥 Cloning application from GitHub..."
-cd /home/ubuntu/kjm-admin
+cd /home/ubuntu/dev
 git clone https://github.com/san-cyclops/KJM.git current
 cd current
 
@@ -89,9 +89,9 @@ module.exports = {
       DB_USER: 'root',
       DB_PASSWORD: 'NewSecurePassword123!'
     },
-    error_file: '/home/ubuntu/kjm-admin/logs/err.log',
-    out_file: '/home/ubuntu/kjm-admin/logs/out.log',
-    log_file: '/home/ubuntu/kjm-admin/logs/combined.log',
+    error_file: '/home/ubuntu/dev/logs/err.log',
+    out_file: '/home/ubuntu/dev/logs/out.log',
+    log_file: '/home/ubuntu/dev/logs/combined.log',
     time: true
   }]
 };

@@ -8,7 +8,7 @@ set -e  # Exit on any error
 echo "Starting deployment of KJM Admin Application..."
 
 # Configuration
-APP_DIR="/home/ubuntu/kjm-admin"
+APP_DIR="/home/ubuntu/dev"
 APP_NAME="kjm-admin"
 NODE_VERSION="20"
 
@@ -77,16 +77,16 @@ module.exports = {
       DB_USER: 'root',
       DB_PASSWORD: 'NewSecurePassword123!'
     },
-    error_file: '/home/ubuntu/kjm-admin/logs/err.log',
-    out_file: '/home/ubuntu/kjm-admin/logs/out.log',
-    log_file: '/home/ubuntu/kjm-admin/logs/combined.log',
+    error_file: '/home/ubuntu/dev/logs/err.log',
+    out_file: '/home/ubuntu/dev/logs/out.log',
+    log_file: '/home/ubuntu/dev/logs/combined.log',
     time: true
   }]
 };
 EOF
 
 # Create logs directory
-mkdir -p /home/ubuntu/kjm-admin/logs
+mkdir -p /home/ubuntu/dev/logs
 
 # Start application with PM2
 echo "Starting application with PM2..."

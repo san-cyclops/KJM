@@ -106,11 +106,11 @@ git push origin release
 
 ### Server Configuration:
 
-- **Application Path**: `/home/ubuntu/kjm-admin/current`
+- **Application Path**: `/home/ubuntu/dev/current`
 - **Process Manager**: PM2 with ecosystem configuration
 - **Web Server**: Nginx reverse proxy on port 80
-- **Logs**: `/home/ubuntu/kjm-admin/logs/`
-- **Backup**: Previous deployment in `/home/ubuntu/kjm-admin/backup`
+- **Logs**: `/home/ubuntu/dev/logs/`
+- **Backup**: Previous deployment in `/home/ubuntu/dev/backup`
 
 ## Application URLs
 
@@ -180,7 +180,7 @@ If automatic deployment fails, you can deploy manually:
 
 ```bash
 ssh -i jummaMasjid.pem ubuntu@13.232.39.214
-cd /home/ubuntu/kjm-admin
+cd /home/ubuntu/dev
 git clone https://github.com/san-cyclops/KJM.git manual-deploy
 cd manual-deploy
 bash scripts/deploy.sh
@@ -257,17 +257,17 @@ DB_NAME=masjid                                  # Database name
 
 ```bash
 # Backup application
-cp -r /home/ubuntu/kjm-admin/current /home/ubuntu/kjm-admin/backup-$(date +%Y%m%d-%H%M%S)
+cp -r /home/ubuntu/dev/current /home/ubuntu/dev/backup-$(date +%Y%m%d-%H%M%S)
 
 # Backup database
-mysqldump -u root -p kjm_admin_db > backup-$(date +%Y%m%d-%H%M%S).sql
+mysqldump -u root -p masjid > backup-$(date +%Y%m%d-%H%M%S).sql
 ```
 
 ### Recovery:
 
 ```bash
 # Restore from backup
-cd /home/ubuntu/kjm-admin
+cd /home/ubuntu/dev
 pm2 stop kjm-admin
 rm -rf current
 mv backup current
