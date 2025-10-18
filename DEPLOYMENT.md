@@ -4,7 +4,7 @@ This document explains how to set up and use the CI/CD pipeline for the KJM Admi
 
 ## Overview
 
-The deployment pipeline uses GitHub Actions to automatically deploy your application to an AWS EC2 server whenever code is pushed to the main branch.
+The deployment pipeline uses GitHub Actions to automatically deploy your application to an AWS EC2 server whenever code is pushed to the release branch.
 
 ## Pipeline Architecture
 
@@ -53,12 +53,12 @@ Add the following secrets to your GitHub repository:
 
 ### 3. Deployment Process
 
-The pipeline automatically triggers when you push to the main branch:
+The pipeline automatically triggers when you push to the release branch:
 
 ```bash
 git add .
 git commit -m "Your commit message"
-git push origin main
+git push origin release
 ```
 
 ## Pipeline Stages
@@ -70,7 +70,7 @@ git push origin main
 - **Syntax Check**: Validates JavaScript syntax
 - **Unit Tests**: Runs `npm test` if tests are available
 
-### 2. Deploy Stage (only on main branch)
+### 2. Deploy Stage (only on release branch)
 
 - **SSH Setup**: Configures SSH connection to server
 - **File Transfer**: Copies application files to server

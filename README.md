@@ -220,7 +220,7 @@ This application includes an automated CI/CD pipeline for deployment to AWS EC2.
 
 3. **Deploy**:
    ```bash
-   git push origin main
+   git push origin release
    ```
 
 ### Production URL
