@@ -167,27 +167,26 @@ const insertSamplePersonalInfo = async () => {
   try {
     // Check if sample data already exists
     const [existingData] = await promisePool.execute(
-      "SELECT id FROM personal_info WHERE identity_card_number = ?",
+      "SELECT id FROM personal_info WHERE identity_card = ?",
       ["199330002675"]
     );
 
     if (existingData.length === 0) {
       const insertQuery = `
         INSERT INTO personal_info (
-          date, full_name, permanent_address_no, permanent_address_street, 
-          permanent_address_area, permanent_address_city, mobile_number, 
-          identity_card_number, whatsapp_number, civil_status, residence, 
-          residence_owner_name, residence_owner_mobile, profession,
-          special_need_child_details, no_of_non_related_people, nrp1_full_name,
-          nrp1_nic_number, nrp1_address, nrp1_purpose_of_staying,
-          sandha_membership_amount, paying_sandha_other_masjidh, other_masjidh_sandha_details
+          date, full_name, address_line1, address_line2, 
+          city, postal_code, mobile, 
+          identity_card, civil_status, spouse_name, 
+          children_count, residence_type, profession,
+          special_need_details, non_related_people_count,
+          sandha_member, sandha_amount, donation_amount, notes
         ) VALUES (
-          '2024-12-27', 'Omar Ghani', '1/3', 'Unambuwa Road', 
-          'Kahatapitiya', 'Gampola', '0770040066', 
-          '199330002675', '0770040066', 'Married', 'Own', 
-          'Omar', '0770040066', 'IT Project Manager',
-          'N/A', 0, 'N/A', 'N/A', 'N/A', 'N/A',
-          300.00, 'No', 'N/A'
+          '2024-12-27', 'Omar Ghani', '1/3 Unambuwa Road', 'Kahatapitiya', 
+          'Gampola', '20500', '0770040066', 
+          '199330002675', 'married', 'Afla', 
+          2, 'Own', 'IT Project Manager',
+          'N/A', 0,
+          1, 300.00, 0.00, 'Sample data'
         )
       `;
 
@@ -209,13 +208,10 @@ const createFamilyMembersTable = async () => {
         id INT AUTO_INCREMENT PRIMARY KEY,
         personal_info_id INT NOT NULL,
         name VARCHAR(255) NOT NULL,
-        relationship ENUM('Wife', 'Husband', 'Child', 'Son', 'Daughter', 'Father', 'Mother', 'Brother', 'Sister', 'Other') NOT NULL,
-        date_of_birth DATE,
-        school_name VARCHAR(255),
-        grade VARCHAR(50),
-        quran_madrasa VARCHAR(255),
-        occupation VARCHAR(255),
-        contact_number VARCHAR(20),
+        relationship VARCHAR(100),
+        age INT,
+        occupation VARCHAR(100),
+        notes TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         FOREIGN KEY (personal_info_id) REFERENCES personal_info(id) ON DELETE CASCADE
@@ -241,14 +237,12 @@ const insertSampleFamilyMembers = async () => {
     if (existingData.length === 0) {
       const insertQueries = [
         `INSERT INTO family_members (
-          personal_info_id, name, relationship, date_of_birth, 
-          school_name, grade, quran_madrasa, occupation, contact_number
-        ) VALUES (1, 'Afla', 'Wife', '1997-12-26', 'N/A', 'N/A', 'N/A', 'House Wife', '0770040066')`,
+          personal_info_id, name, relationship, age, occupation, notes
+        ) VALUES (1, 'Afla', 'Wife', 28, 'House Wife', 'Sample family member')`,
 
         `INSERT INTO family_members (
-          personal_info_id, name, relationship, date_of_birth, 
-          school_name, grade, quran_madrasa, occupation, contact_number
-        ) VALUES (1, 'Saad', 'Child', '2025-07-27', 'N/A', 'N/A', 'N/A', 'N/A', '0770040066')`,
+          personal_info_id, name, relationship, age, occupation, notes
+        ) VALUES (1, 'Saad', 'Child', 0, 'Student', 'Sample family member')`,
       ];
 
       for (const query of insertQueries) {
