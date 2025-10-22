@@ -693,77 +693,88 @@ router.get("/personal-info/create", (req, res) => {
                                     </div>
                                 </div>
 
-                                <h5 class="mt-4 mb-3">Permanent Address</h5>
+                                <h5 class="mt-4 mb-3">Address Information</h5>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="permanent_address_no" class="form-label">House No</label>
-                                            <input type="text" class="form-control" id="permanent_address_no" name="permanent_address_no">
+                                            <label for="address_line1" class="form-label">Address Line 1</label>
+                                            <input type="text" class="form-control" id="address_line1" name="address_line1">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="permanent_address_street" class="form-label">Street</label>
-                                            <input type="text" class="form-control" id="permanent_address_street" name="permanent_address_street">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="permanent_address_area" class="form-label">Area</label>
-                                            <input type="text" class="form-control" id="permanent_address_area" name="permanent_address_area">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="mb-3">
-                                            <label for="permanent_address_city" class="form-label">City</label>
-                                            <input type="text" class="form-control" id="permanent_address_city" name="permanent_address_city">
+                                            <label for="address_line2" class="form-label">Address Line 2</label>
+                                            <input type="text" class="form-control" id="address_line2" name="address_line2">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="mobile_number" class="form-label">Mobile Number</label>
-                                            <input type="tel" class="form-control" id="mobile_number" name="mobile_number">
+                                            <label for="city" class="form-label">City</label>
+                                            <input type="text" class="form-control" id="city" name="city">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="identity_card_number" class="form-label">Identity Card Number</label>
-                                            <input type="text" class="form-control" id="identity_card_number" name="identity_card_number">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <label for="whatsapp_number" class="form-label">WhatsApp Number</label>
-                                            <input type="tel" class="form-control" id="whatsapp_number" name="whatsapp_number">
+                                            <label for="postal_code" class="form-label">Postal Code</label>
+                                            <input type="text" class="form-control" id="postal_code" name="postal_code">
                                         </div>
                                     </div>
                                 </div>
 
+                                <h5 class="mt-4 mb-3">Contact Information</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="mobile" class="form-label">Mobile Number</label>
+                                            <input type="tel" class="form-control" id="mobile" name="mobile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="identity_card" class="form-label">Identity Card Number</label>
+                                            <input type="text" class="form-control" id="identity_card" name="identity_card">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="mt-4 mb-3">Personal Details</h5>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="mb-3">
                                             <label for="civil_status" class="form-label">Civil Status</label>
                                             <select class="form-control" id="civil_status" name="civil_status">
-                                                <option value="Single">Single</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Widowed">Widowed</option>
-                                                <option value="Divorced">Divorced</option>
+                                                <option value="single">Single</option>
+                                                <option value="married">Married</option>
+                                                <option value="widowed">Widowed</option>
+                                                <option value="divorced">Divorced</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="residence" class="form-label">Residence</label>
-                                            <select class="form-control" id="residence" name="residence">
-                                                <option value="Own">Own</option>
-                                                <option value="Rent">Rent</option>
-                                            </select>
+                                            <label for="spouse_name" class="form-label">Spouse Name</label>
+                                            <input type="text" class="form-control" id="spouse_name" name="spouse_name">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="children_count" class="form-label">Number of Children</label>
+                                            <input type="number" class="form-control" id="children_count" name="children_count" min="0" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="residence_type" class="form-label">Residence Type</label>
+                                            <input type="text" class="form-control" id="residence_type" name="residence_type">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="profession" class="form-label">Profession</label>
                                             <input type="text" class="form-control" id="profession" name="profession">
@@ -771,27 +782,33 @@ router.get("/personal-info/create", (req, res) => {
                                     </div>
                                 </div>
 
-                                <div id="residence-owner-fields" class="row" style="display: none;">
-                                    <div class="col-md-6">
+                                <h5 class="mt-4 mb-3">Special Need Child Information</h5>
+                                <div class="row">
+                                    <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="residence_owner_name" class="form-label">Residence Owner Name</label>
-                                            <input type="text" class="form-control" id="residence_owner_name" name="residence_owner_name">
+                                            <label for="special_need_child_name" class="form-label">Child Name</label>
+                                            <input type="text" class="form-control" id="special_need_child_name" name="special_need_child_name">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="residence_owner_mobile" class="form-label">Residence Owner Mobile</label>
-                                            <input type="tel" class="form-control" id="residence_owner_mobile" name="residence_owner_mobile">
+                                            <label for="special_need_child_age" class="form-label">Child Age</label>
+                                            <input type="number" class="form-control" id="special_need_child_age" name="special_need_child_age" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="special_need_child_school" class="form-label">School</label>
+                                            <input type="text" class="form-control" id="special_need_child_school" name="special_need_child_school">
                                         </div>
                                     </div>
                                 </div>
 
-                                <h5 class="mt-4 mb-3">Additional Information</h5>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="special_need_child_details" class="form-label">Details about special need child (if applicable)</label>
-                                            <textarea class="form-control" id="special_need_child_details" name="special_need_child_details" rows="2" placeholder="N/A if not applicable"></textarea>
+                                            <label for="special_need_details" class="form-label">Special Need Details</label>
+                                            <textarea class="form-control" id="special_need_details" name="special_need_details" rows="2"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -800,60 +817,45 @@ router.get("/personal-info/create", (req, res) => {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="no_of_non_related_people" class="form-label">No of non-related people</label>
-                                            <input type="number" class="form-control" id="no_of_non_related_people" name="no_of_non_related_people" min="0" value="0">
+                                            <label for="non_related_people_count" class="form-label">Number of Non-Related People</label>
+                                            <input type="number" class="form-control" id="non_related_people_count" name="non_related_people_count" min="0" value="0">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="nrp1_full_name" class="form-label">NRP 1 Full Name</label>
-                                            <input type="text" class="form-control" id="nrp1_full_name" name="nrp1_full_name" placeholder="N/A if not applicable">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="nrp1_nic_number" class="form-label">NRP1 NIC Number</label>
-                                            <input type="text" class="form-control" id="nrp1_nic_number" name="nrp1_nic_number" placeholder="N/A if not applicable">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="nrp1_purpose_of_staying" class="form-label">NRP1 Purpose of Staying</label>
-                                            <input type="text" class="form-control" id="nrp1_purpose_of_staying" name="nrp1_purpose_of_staying" placeholder="N/A if not applicable">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="mb-3">
-                                            <label for="nrp1_address" class="form-label">NRP1 Address</label>
-                                            <textarea class="form-control" id="nrp1_address" name="nrp1_address" rows="2" placeholder="N/A if not applicable"></textarea>
+                                            <label for="non_related_people_details" class="form-label">Details</label>
+                                            <textarea class="form-control" id="non_related_people_details" name="non_related_people_details" rows="2"></textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <h5 class="mt-4 mb-3">Sandha/Donation Information</h5>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="sandha_membership_amount" class="form-label">Sandha/Membership Amount</label>
+                                            <label for="sandha_member" class="form-label">Sandha Member</label>
+                                            <select class="form-control" id="sandha_member" name="sandha_member">
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="sandha_amount" class="form-label">Sandha Amount</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">Rs.</span>
-                                                <input type="number" class="form-control" id="sandha_membership_amount" name="sandha_membership_amount" step="0.01" min="0" value="300.00">
+                                                <input type="number" class="form-control" id="sandha_amount" name="sandha_amount" step="0.01" min="0">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="paying_sandha_other_masjidh" class="form-label">Are you paying Sandha or Donation to any other masjidh</label>
-                                            <select class="form-control" id="paying_sandha_other_masjidh" name="paying_sandha_other_masjidh">
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
+                                            <label for="donation_amount" class="form-label">Donation Amount</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">Rs.</span>
+                                                <input type="number" class="form-control" id="donation_amount" name="donation_amount" step="0.01" min="0">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -861,8 +863,8 @@ router.get("/personal-info/create", (req, res) => {
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="other_masjidh_sandha_details" class="form-label">Details of Sandha for any other masjidhs</label>
-                                            <textarea class="form-control" id="other_masjidh_sandha_details" name="other_masjidh_sandha_details" rows="3" placeholder="N/A if not applicable"></textarea>
+                                            <label for="notes" class="form-label">Notes</label>
+                                            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -882,21 +884,7 @@ router.get("/personal-info/create", (req, res) => {
         </div>
     </section>
 
-    <script>
-        // Show/hide residence owner fields based on residence type
-        document.getElementById('residence').addEventListener('change', function() {
-            const ownerFields = document.getElementById('residence-owner-fields');
-            if (this.value === 'Rent') {
-                ownerFields.style.display = 'flex';
-                document.getElementById('residence_owner_name').required = true;
-            } else {
-                ownerFields.style.display = 'none';
-                document.getElementById('residence_owner_name').required = false;
-                document.getElementById('residence_owner_name').value = '';
-                document.getElementById('residence_owner_mobile').value = '';
-            }
-        });
-    </script>
+
   `;
 
   // Clear session error
@@ -915,34 +903,33 @@ router.post("/personal-info/create", async (req, res) => {
     const personalInfoData = {
       date: req.body.date,
       full_name: req.body.full_name,
-      permanent_address_no: req.body.permanent_address_no || null,
-      permanent_address_street: req.body.permanent_address_street || null,
-      permanent_address_area: req.body.permanent_address_area || null,
-      permanent_address_city: req.body.permanent_address_city || null,
-      mobile_number: req.body.mobile_number || null,
-      identity_card_number: req.body.identity_card_number || null,
-      whatsapp_number: req.body.whatsapp_number || null,
-      civil_status: req.body.civil_status || "Single",
-      residence: req.body.residence || "Own",
-      residence_owner_name: req.body.residence_owner_name || null,
-      residence_owner_mobile: req.body.residence_owner_mobile || null,
+      address_line1: req.body.address_line1 || null,
+      address_line2: req.body.address_line2 || null,
+      city: req.body.city || null,
+      postal_code: req.body.postal_code || null,
+      mobile: req.body.mobile || null,
+      identity_card: req.body.identity_card || null,
+      civil_status: req.body.civil_status || "single",
+      spouse_name: req.body.spouse_name || null,
+      children_count: req.body.children_count || 0,
+      residence_type: req.body.residence_type || null,
       profession: req.body.profession || null,
-      special_need_child_details: req.body.special_need_child_details || "N/A",
-      no_of_non_related_people: req.body.no_of_non_related_people || 0,
-      nrp1_full_name: req.body.nrp1_full_name || "N/A",
-      nrp1_nic_number: req.body.nrp1_nic_number || "N/A",
-      nrp1_address: req.body.nrp1_address || "N/A",
-      nrp1_purpose_of_staying: req.body.nrp1_purpose_of_staying || "N/A",
-      sandha_membership_amount: req.body.sandha_membership_amount || 0.0,
-      paying_sandha_other_masjidh: req.body.paying_sandha_other_masjidh || "No",
-      other_masjidh_sandha_details:
-        req.body.other_masjidh_sandha_details || "N/A",
+      special_need_child_name: req.body.special_need_child_name || null,
+      special_need_child_age: req.body.special_need_child_age || null,
+      special_need_child_school: req.body.special_need_child_school || null,
+      special_need_details: req.body.special_need_details || null,
+      non_related_people_count: req.body.non_related_people_count || 0,
+      non_related_people_details: req.body.non_related_people_details || null,
+      sandha_member: req.body.sandha_member ? 1 : 0,
+      sandha_amount: req.body.sandha_amount || null,
+      donation_amount: req.body.donation_amount || null,
+      notes: req.body.notes || null,
     };
 
     // Check if identity card already exists
-    if (personalInfoData.identity_card_number) {
+    if (personalInfoData.identity_card) {
       const existingRecord = await PersonalInfo.findByIdentityCard(
-        personalInfoData.identity_card_number
+        personalInfoData.identity_card
       );
       if (existingRecord) {
         req.session.error = "Identity card number already exists";
@@ -1042,44 +1029,24 @@ router.get("/personal-info/edit/:id", async (req, res) => {
                                       </div>
                                   </div>
 
-                                  <h5 class="mt-4 mb-3">Permanent Address</h5>
+                                  <h5 class="mt-4 mb-3">Address Information</h5>
                                   <div class="row">
-                                      <div class="col-md-3">
+                                      <div class="col-md-6">
                                           <div class="mb-3">
-                                              <label for="permanent_address_no" class="form-label">House No</label>
-                                              <input type="text" class="form-control" id="permanent_address_no" name="permanent_address_no"
+                                              <label for="address_line1" class="form-label">Address Line 1</label>
+                                              <input type="text" class="form-control" id="address_line1" name="address_line1"
                                                      value="${
-                                                       personalInfo.permanent_address_no ||
+                                                       personalInfo.address_line1 ||
                                                        ""
                                                      }">
                                           </div>
                                       </div>
-                                      <div class="col-md-3">
+                                      <div class="col-md-6">
                                           <div class="mb-3">
-                                              <label for="permanent_address_street" class="form-label">Street</label>
-                                              <input type="text" class="form-control" id="permanent_address_street" name="permanent_address_street"
+                                              <label for="address_line2" class="form-label">Address Line 2</label>
+                                              <input type="text" class="form-control" id="address_line2" name="address_line2"
                                                      value="${
-                                                       personalInfo.permanent_address_street ||
-                                                       ""
-                                                     }">
-                                          </div>
-                                      </div>
-                                      <div class="col-md-3">
-                                          <div class="mb-3">
-                                              <label for="permanent_address_area" class="form-label">Area</label>
-                                              <input type="text" class="form-control" id="permanent_address_area" name="permanent_address_area"
-                                                     value="${
-                                                       personalInfo.permanent_address_area ||
-                                                       ""
-                                                     }">
-                                          </div>
-                                      </div>
-                                      <div class="col-md-3">
-                                          <div class="mb-3">
-                                              <label for="permanent_address_city" class="form-label">City</label>
-                                              <input type="text" class="form-control" id="permanent_address_city" name="permanent_address_city"
-                                                     value="${
-                                                       personalInfo.permanent_address_city ||
+                                                       personalInfo.address_line2 ||
                                                        ""
                                                      }">
                                           </div>
@@ -1087,64 +1054,77 @@ router.get("/personal-info/edit/:id", async (req, res) => {
                                   </div>
 
                                   <div class="row">
-                                      <div class="col-md-4">
+                                      <div class="col-md-6">
                                           <div class="mb-3">
-                                              <label for="mobile_number" class="form-label">Mobile Number</label>
-                                              <input type="tel" class="form-control" id="mobile_number" name="mobile_number"
+                                              <label for="city" class="form-label">City</label>
+                                              <input type="text" class="form-control" id="city" name="city"
                                                      value="${
-                                                       personalInfo.mobile_number ||
-                                                       ""
+                                                       personalInfo.city || ""
                                                      }">
                                           </div>
                                       </div>
-                                      <div class="col-md-4">
+                                      <div class="col-md-6">
                                           <div class="mb-3">
-                                              <label for="identity_card_number" class="form-label">Identity Card Number</label>
-                                              <input type="text" class="form-control" id="identity_card_number" name="identity_card_number"
+                                              <label for="postal_code" class="form-label">Postal Code</label>
+                                              <input type="text" class="form-control" id="postal_code" name="postal_code"
                                                      value="${
-                                                       personalInfo.identity_card_number ||
-                                                       ""
-                                                     }">
-                                          </div>
-                                      </div>
-                                      <div class="col-md-4">
-                                          <div class="mb-3">
-                                              <label for="whatsapp_number" class="form-label">WhatsApp Number</label>
-                                              <input type="tel" class="form-control" id="whatsapp_number" name="whatsapp_number"
-                                                     value="${
-                                                       personalInfo.whatsapp_number ||
+                                                       personalInfo.postal_code ||
                                                        ""
                                                      }">
                                           </div>
                                       </div>
                                   </div>
 
+                                  <h5 class="mt-4 mb-3">Contact Information</h5>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="mb-3">
+                                              <label for="mobile" class="form-label">Mobile Number</label>
+                                              <input type="tel" class="form-control" id="mobile" name="mobile"
+                                                     value="${
+                                                       personalInfo.mobile || ""
+                                                     }">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="mb-3">
+                                              <label for="identity_card" class="form-label">Identity Card Number</label>
+                                              <input type="text" class="form-control" id="identity_card" name="identity_card"
+                                                     value="${
+                                                       personalInfo.identity_card ||
+                                                       ""
+                                                     }">
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <h5 class="mt-4 mb-3">Personal Details</h5>
                                   <div class="row">
                                       <div class="col-md-4">
                                           <div class="mb-3">
                                               <label for="civil_status" class="form-label">Civil Status</label>
                                               <select class="form-control" id="civil_status" name="civil_status">
-                                                  <option value="Single" ${
+                                                  <option value="single" ${
                                                     personalInfo.civil_status ===
-                                                    "Single"
+                                                    "single"
                                                       ? "selected"
                                                       : ""
                                                   }>Single</option>
-                                                  <option value="Married" ${
+                                                  <option value="married" ${
                                                     personalInfo.civil_status ===
-                                                    "Married"
+                                                    "married"
                                                       ? "selected"
                                                       : ""
                                                   }>Married</option>
-                                                  <option value="Widowed" ${
+                                                  <option value="widowed" ${
                                                     personalInfo.civil_status ===
-                                                    "Widowed"
+                                                    "widowed"
                                                       ? "selected"
                                                       : ""
                                                   }>Widowed</option>
-                                                  <option value="Divorced" ${
+                                                  <option value="divorced" ${
                                                     personalInfo.civil_status ===
-                                                    "Divorced"
+                                                    "divorced"
                                                       ? "selected"
                                                       : ""
                                                   }>Divorced</option>
@@ -1153,24 +1133,38 @@ router.get("/personal-info/edit/:id", async (req, res) => {
                                       </div>
                                       <div class="col-md-4">
                                           <div class="mb-3">
-                                              <label for="residence" class="form-label">Residence</label>
-                                              <select class="form-control" id="residence" name="residence">
-                                                  <option value="Own" ${
-                                                    personalInfo.residence ===
-                                                    "Own"
-                                                      ? "selected"
-                                                      : ""
-                                                  }>Own</option>
-                                                  <option value="Rent" ${
-                                                    personalInfo.residence ===
-                                                    "Rent"
-                                                      ? "selected"
-                                                      : ""
-                                                  }>Rent</option>
-                                              </select>
+                                              <label for="spouse_name" class="form-label">Spouse Name</label>
+                                              <input type="text" class="form-control" id="spouse_name" name="spouse_name"
+                                                     value="${
+                                                       personalInfo.spouse_name ||
+                                                       ""
+                                                     }">
                                           </div>
                                       </div>
                                       <div class="col-md-4">
+                                          <div class="mb-3">
+                                              <label for="children_count" class="form-label">Number of Children</label>
+                                              <input type="number" class="form-control" id="children_count" name="children_count" min="0"
+                                                     value="${
+                                                       personalInfo.children_count ||
+                                                       0
+                                                     }">
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="mb-3">
+                                              <label for="residence_type" class="form-label">Residence Type</label>
+                                              <input type="text" class="form-control" id="residence_type" name="residence_type"
+                                                     value="${
+                                                       personalInfo.residence_type ||
+                                                       ""
+                                                     }">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
                                           <div class="mb-3">
                                               <label for="profession" class="form-label">Profession</label>
                                               <input type="text" class="form-control" id="profession" name="profession"
@@ -1182,40 +1176,46 @@ router.get("/personal-info/edit/:id", async (req, res) => {
                                       </div>
                                   </div>
 
-                                  <div id="residence-owner-fields" class="row" style="display: ${
-                                    personalInfo.residence === "Rent"
-                                      ? "flex"
-                                      : "none"
-                                  };">
-                                      <div class="col-md-6">
+                                  <h5 class="mt-4 mb-3">Special Need Child Information</h5>
+                                  <div class="row">
+                                      <div class="col-md-4">
                                           <div class="mb-3">
-                                              <label for="residence_owner_name" class="form-label">Residence Owner Name</label>
-                                              <input type="text" class="form-control" id="residence_owner_name" name="residence_owner_name"
+                                              <label for="special_need_child_name" class="form-label">Child Name</label>
+                                              <input type="text" class="form-control" id="special_need_child_name" name="special_need_child_name"
                                                      value="${
-                                                       personalInfo.residence_owner_name ||
+                                                       personalInfo.special_need_child_name ||
                                                        ""
                                                      }">
                                           </div>
                                       </div>
-                                      <div class="col-md-6">
+                                      <div class="col-md-4">
                                           <div class="mb-3">
-                                              <label for="residence_owner_mobile" class="form-label">Residence Owner Mobile</label>
-                                              <input type="tel" class="form-control" id="residence_owner_mobile" name="residence_owner_mobile"
+                                              <label for="special_need_child_age" class="form-label">Child Age</label>
+                                              <input type="number" class="form-control" id="special_need_child_age" name="special_need_child_age" min="0"
                                                      value="${
-                                                       personalInfo.residence_owner_mobile ||
+                                                       personalInfo.special_need_child_age ||
+                                                       ""
+                                                     }">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="mb-3">
+                                              <label for="special_need_child_school" class="form-label">School</label>
+                                              <input type="text" class="form-control" id="special_need_child_school" name="special_need_child_school"
+                                                     value="${
+                                                       personalInfo.special_need_child_school ||
                                                        ""
                                                      }">
                                           </div>
                                       </div>
                                   </div>
 
-                                  <h5 class="mt-4 mb-3">Additional Information</h5>
                                   <div class="row">
                                       <div class="col-md-12">
                                           <div class="mb-3">
-                                              <label for="special_need_child_details" class="form-label">Details about special need child (if applicable)</label>
-                                              <textarea class="form-control" id="special_need_child_details" name="special_need_child_details" rows="2">${
-                                                personalInfo.special_need_child_details ||
+                                              <label for="special_need_details" class="form-label">Special Need Details</label>
+                                              <textarea class="form-control" id="special_need_details" name="special_need_details" rows="2">${
+                                                personalInfo.special_need_details ||
                                                 ""
                                               }</textarea>
                                           </div>
@@ -1226,51 +1226,19 @@ router.get("/personal-info/edit/:id", async (req, res) => {
                                   <div class="row">
                                       <div class="col-md-6">
                                           <div class="mb-3">
-                                              <label for="no_of_non_related_people" class="form-label">No of non-related people</label>
-                                              <input type="number" class="form-control" id="no_of_non_related_people" name="no_of_non_related_people" min="0" value="${
-                                                personalInfo.no_of_non_related_people ||
+                                              <label for="non_related_people_count" class="form-label">Number of Non-Related People</label>
+                                              <input type="number" class="form-control" id="non_related_people_count" name="non_related_people_count" min="0" value="${
+                                                personalInfo.non_related_people_count ||
                                                 0
                                               }">
                                           </div>
                                       </div>
                                       <div class="col-md-6">
                                           <div class="mb-3">
-                                              <label for="nrp1_full_name" class="form-label">NRP 1 Full Name</label>
-                                              <input type="text" class="form-control" id="nrp1_full_name" name="nrp1_full_name" value="${
-                                                personalInfo.nrp1_full_name ||
+                                              <label for="non_related_people_details" class="form-label">Details</label>
+                                              <textarea class="form-control" id="non_related_people_details" name="non_related_people_details" rows="2">${
+                                                personalInfo.non_related_people_details ||
                                                 ""
-                                              }">
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <div class="mb-3">
-                                              <label for="nrp1_nic_number" class="form-label">NRP1 NIC Number</label>
-                                              <input type="text" class="form-control" id="nrp1_nic_number" name="nrp1_nic_number" value="${
-                                                personalInfo.nrp1_nic_number ||
-                                                ""
-                                              }">
-                                          </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <div class="mb-3">
-                                              <label for="nrp1_purpose_of_staying" class="form-label">NRP1 Purpose of Staying</label>
-                                              <input type="text" class="form-control" id="nrp1_purpose_of_staying" name="nrp1_purpose_of_staying" value="${
-                                                personalInfo.nrp1_purpose_of_staying ||
-                                                ""
-                                              }">
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="row">
-                                      <div class="col-md-12">
-                                          <div class="mb-3">
-                                              <label for="nrp1_address" class="form-label">NRP1 Address</label>
-                                              <textarea class="form-control" id="nrp1_address" name="nrp1_address" rows="2">${
-                                                personalInfo.nrp1_address || ""
                                               }</textarea>
                                           </div>
                                       </div>
@@ -1278,35 +1246,47 @@ router.get("/personal-info/edit/:id", async (req, res) => {
 
                                   <h5 class="mt-4 mb-3">Sandha/Donation Information</h5>
                                   <div class="row">
-                                      <div class="col-md-6">
+                                      <div class="col-md-4">
                                           <div class="mb-3">
-                                              <label for="sandha_membership_amount" class="form-label">Sandha/Membership Amount</label>
-                                              <div class="input-group">
-                                                  <span class="input-group-text">Rs.</span>
-                                                  <input type="number" class="form-control" id="sandha_membership_amount" name="sandha_membership_amount" step="0.01" min="0" value="${
-                                                    personalInfo.sandha_membership_amount ||
+                                              <label for="sandha_member" class="form-label">Sandha Member</label>
+                                              <select class="form-control" id="sandha_member" name="sandha_member">
+                                                  <option value="0" ${
+                                                    personalInfo.sandha_member ===
                                                     0
-                                                  }">
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <div class="mb-3">
-                                              <label for="paying_sandha_other_masjidh" class="form-label">Are you paying Sandha or Donation to any other masjidh</label>
-                                              <select class="form-control" id="paying_sandha_other_masjidh" name="paying_sandha_other_masjidh">
-                                                  <option value="No" ${
-                                                    personalInfo.paying_sandha_other_masjidh ===
-                                                    "No"
                                                       ? "selected"
                                                       : ""
                                                   }>No</option>
-                                                  <option value="Yes" ${
-                                                    personalInfo.paying_sandha_other_masjidh ===
-                                                    "Yes"
+                                                  <option value="1" ${
+                                                    personalInfo.sandha_member ===
+                                                    1
                                                       ? "selected"
                                                       : ""
                                                   }>Yes</option>
                                               </select>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="mb-3">
+                                              <label for="sandha_amount" class="form-label">Sandha Amount</label>
+                                              <div class="input-group">
+                                                  <span class="input-group-text">Rs.</span>
+                                                  <input type="number" class="form-control" id="sandha_amount" name="sandha_amount" step="0.01" min="0" value="${
+                                                    personalInfo.sandha_amount ||
+                                                    ""
+                                                  }">
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="mb-3">
+                                              <label for="donation_amount" class="form-label">Donation Amount</label>
+                                              <div class="input-group">
+                                                  <span class="input-group-text">Rs.</span>
+                                                  <input type="number" class="form-control" id="donation_amount" name="donation_amount" step="0.01" min="0" value="${
+                                                    personalInfo.donation_amount ||
+                                                    ""
+                                                  }">
+                                              </div>
                                           </div>
                                       </div>
                                   </div>
@@ -1314,10 +1294,9 @@ router.get("/personal-info/edit/:id", async (req, res) => {
                                   <div class="row">
                                       <div class="col-md-12">
                                           <div class="mb-3">
-                                              <label for="other_masjidh_sandha_details" class="form-label">Details of Sandha for any other masjidhs</label>
-                                              <textarea class="form-control" id="other_masjidh_sandha_details" name="other_masjidh_sandha_details" rows="3">${
-                                                personalInfo.other_masjidh_sandha_details ||
-                                                ""
+                                              <label for="notes" class="form-label">Notes</label>
+                                              <textarea class="form-control" id="notes" name="notes" rows="3">${
+                                                personalInfo.notes || ""
                                               }</textarea>
                                           </div>
                                       </div>
@@ -1338,21 +1317,7 @@ router.get("/personal-info/edit/:id", async (req, res) => {
           </div>
       </section>
 
-      <script>
-          // Show/hide residence owner fields based on residence type
-          document.getElementById('residence').addEventListener('change', function() {
-              const ownerFields = document.getElementById('residence-owner-fields');
-              if (this.value === 'Rent') {
-                  ownerFields.style.display = 'flex';
-                  document.getElementById('residence_owner_name').required = true;
-              } else {
-                  ownerFields.style.display = 'none';
-                  document.getElementById('residence_owner_name').required = false;
-                  document.getElementById('residence_owner_name').value = '';
-                  document.getElementById('residence_owner_mobile').value = '';
-              }
-          });
-      </script>
+
     `;
 
     // Clear session error
@@ -1376,34 +1341,33 @@ router.put("/personal-info/edit/:id", async (req, res) => {
     const personalInfoData = {
       date: req.body.date,
       full_name: req.body.full_name,
-      permanent_address_no: req.body.permanent_address_no || null,
-      permanent_address_street: req.body.permanent_address_street || null,
-      permanent_address_area: req.body.permanent_address_area || null,
-      permanent_address_city: req.body.permanent_address_city || null,
-      mobile_number: req.body.mobile_number || null,
-      identity_card_number: req.body.identity_card_number || null,
-      whatsapp_number: req.body.whatsapp_number || null,
-      civil_status: req.body.civil_status || "Single",
-      residence: req.body.residence || "Own",
-      residence_owner_name: req.body.residence_owner_name || null,
-      residence_owner_mobile: req.body.residence_owner_mobile || null,
+      address_line1: req.body.address_line1 || null,
+      address_line2: req.body.address_line2 || null,
+      city: req.body.city || null,
+      postal_code: req.body.postal_code || null,
+      mobile: req.body.mobile || null,
+      identity_card: req.body.identity_card || null,
+      civil_status: req.body.civil_status || "single",
+      spouse_name: req.body.spouse_name || null,
+      children_count: req.body.children_count || 0,
+      residence_type: req.body.residence_type || null,
       profession: req.body.profession || null,
-      special_need_child_details: req.body.special_need_child_details || "N/A",
-      no_of_non_related_people: req.body.no_of_non_related_people || 0,
-      nrp1_full_name: req.body.nrp1_full_name || "N/A",
-      nrp1_nic_number: req.body.nrp1_nic_number || "N/A",
-      nrp1_address: req.body.nrp1_address || "N/A",
-      nrp1_purpose_of_staying: req.body.nrp1_purpose_of_staying || "N/A",
-      sandha_membership_amount: req.body.sandha_membership_amount || 0.0,
-      paying_sandha_other_masjidh: req.body.paying_sandha_other_masjidh || "No",
-      other_masjidh_sandha_details:
-        req.body.other_masjidh_sandha_details || "N/A",
+      special_need_child_name: req.body.special_need_child_name || null,
+      special_need_child_age: req.body.special_need_child_age || null,
+      special_need_child_school: req.body.special_need_child_school || null,
+      special_need_details: req.body.special_need_details || null,
+      non_related_people_count: req.body.non_related_people_count || 0,
+      non_related_people_details: req.body.non_related_people_details || null,
+      sandha_member: req.body.sandha_member ? 1 : 0,
+      sandha_amount: req.body.sandha_amount || null,
+      donation_amount: req.body.donation_amount || null,
+      notes: req.body.notes || null,
     };
 
     // Check if identity card already exists (excluding current record)
-    if (personalInfoData.identity_card_number) {
+    if (personalInfoData.identity_card) {
       const existingRecord = await PersonalInfo.findByIdentityCard(
-        personalInfoData.identity_card_number
+        personalInfoData.identity_card
       );
       if (existingRecord && existingRecord.id != req.params.id) {
         req.session.error = "Identity card number already exists";

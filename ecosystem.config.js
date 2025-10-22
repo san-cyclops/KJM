@@ -15,7 +15,7 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         PORT: 3000,
-        DB_HOST: "kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com",
+        DB_HOST: "localhost",
         DB_PORT: 3306,
         DB_NAME: "masjid",
         DB_USER: "admin",

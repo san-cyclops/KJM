@@ -31,40 +31,40 @@ class PersonalInfo {
     try {
       const insertQuery = `
         INSERT INTO personal_info (
-          date, full_name, permanent_address_no, permanent_address_street, 
-          permanent_address_area, permanent_address_city, mobile_number, 
-          identity_card_number, whatsapp_number, civil_status, residence, 
-          residence_owner_name, residence_owner_mobile, profession,
-          special_need_child_details, no_of_non_related_people, nrp1_full_name,
-          nrp1_nic_number, nrp1_address, nrp1_purpose_of_staying,
-          sandha_membership_amount, paying_sandha_other_masjidh, other_masjidh_sandha_details
+          date, full_name, address_line1, address_line2, 
+          city, postal_code, mobile, 
+          identity_card, civil_status, spouse_name, 
+          children_count, residence_type, profession,
+          special_need_child_name, special_need_child_age, special_need_child_school,
+          special_need_details, non_related_people_count, non_related_people_details,
+          sandha_member, sandha_amount, donation_amount, notes
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `;
 
       const values = [
         personalInfo.date,
         personalInfo.full_name,
-        personalInfo.permanent_address_no,
-        personalInfo.permanent_address_street,
-        personalInfo.permanent_address_area,
-        personalInfo.permanent_address_city,
-        personalInfo.mobile_number,
-        personalInfo.identity_card_number,
-        personalInfo.whatsapp_number,
+        personalInfo.address_line1,
+        personalInfo.address_line2,
+        personalInfo.city,
+        personalInfo.postal_code,
+        personalInfo.mobile,
+        personalInfo.identity_card,
         personalInfo.civil_status,
-        personalInfo.residence,
-        personalInfo.residence_owner_name,
-        personalInfo.residence_owner_mobile,
+        personalInfo.spouse_name,
+        personalInfo.children_count,
+        personalInfo.residence_type,
         personalInfo.profession,
-        personalInfo.special_need_child_details,
-        personalInfo.no_of_non_related_people,
-        personalInfo.nrp1_full_name,
-        personalInfo.nrp1_nic_number,
-        personalInfo.nrp1_address,
-        personalInfo.nrp1_purpose_of_staying,
-        personalInfo.sandha_membership_amount,
-        personalInfo.paying_sandha_other_masjidh,
-        personalInfo.other_masjidh_sandha_details,
+        personalInfo.special_need_child_name,
+        personalInfo.special_need_child_age,
+        personalInfo.special_need_child_school,
+        personalInfo.special_need_details,
+        personalInfo.non_related_people_count,
+        personalInfo.non_related_people_details,
+        personalInfo.sandha_member,
+        personalInfo.sandha_amount,
+        personalInfo.donation_amount,
+        personalInfo.notes,
       ];
 
       const [result] = await pool.execute(insertQuery, values);
@@ -79,42 +79,42 @@ class PersonalInfo {
     try {
       const updateQuery = `
         UPDATE personal_info SET 
-          date = ?, full_name = ?, permanent_address_no = ?, 
-          permanent_address_street = ?, permanent_address_area = ?, 
-          permanent_address_city = ?, mobile_number = ?, 
-          identity_card_number = ?, whatsapp_number = ?, 
-          civil_status = ?, residence = ?, residence_owner_name = ?, 
-          residence_owner_mobile = ?, profession = ?,
-          special_need_child_details = ?, no_of_non_related_people = ?, nrp1_full_name = ?,
-          nrp1_nic_number = ?, nrp1_address = ?, nrp1_purpose_of_staying = ?,
-          sandha_membership_amount = ?, paying_sandha_other_masjidh = ?, other_masjidh_sandha_details = ?
+          date = ?, full_name = ?, address_line1 = ?, 
+          address_line2 = ?, city = ?, 
+          postal_code = ?, mobile = ?, 
+          identity_card = ?, civil_status = ?, 
+          spouse_name = ?, children_count = ?, residence_type = ?, 
+          profession = ?, special_need_child_name = ?, special_need_child_age = ?,
+          special_need_child_school = ?, special_need_details = ?, non_related_people_count = ?,
+          non_related_people_details = ?, sandha_member = ?, sandha_amount = ?, 
+          donation_amount = ?, notes = ?
         WHERE id = ?
       `;
 
       const values = [
         personalInfo.date,
         personalInfo.full_name,
-        personalInfo.permanent_address_no,
-        personalInfo.permanent_address_street,
-        personalInfo.permanent_address_area,
-        personalInfo.permanent_address_city,
-        personalInfo.mobile_number,
-        personalInfo.identity_card_number,
-        personalInfo.whatsapp_number,
+        personalInfo.address_line1,
+        personalInfo.address_line2,
+        personalInfo.city,
+        personalInfo.postal_code,
+        personalInfo.mobile,
+        personalInfo.identity_card,
         personalInfo.civil_status,
-        personalInfo.residence,
-        personalInfo.residence_owner_name,
-        personalInfo.residence_owner_mobile,
+        personalInfo.spouse_name,
+        personalInfo.children_count,
+        personalInfo.residence_type,
         personalInfo.profession,
-        personalInfo.special_need_child_details,
-        personalInfo.no_of_non_related_people,
-        personalInfo.nrp1_full_name,
-        personalInfo.nrp1_nic_number,
-        personalInfo.nrp1_address,
-        personalInfo.nrp1_purpose_of_staying,
-        personalInfo.sandha_membership_amount,
-        personalInfo.paying_sandha_other_masjidh,
-        personalInfo.other_masjidh_sandha_details,
+        personalInfo.special_need_child_name,
+        personalInfo.special_need_child_age,
+        personalInfo.special_need_child_school,
+        personalInfo.special_need_details,
+        personalInfo.non_related_people_count,
+        personalInfo.non_related_people_details,
+        personalInfo.sandha_member,
+        personalInfo.sandha_amount,
+        personalInfo.donation_amount,
+        personalInfo.notes,
         id,
       ];
 
@@ -142,7 +142,7 @@ class PersonalInfo {
   static async findByIdentityCard(identityCard) {
     try {
       const [rows] = await pool.execute(
-        "SELECT * FROM personal_info WHERE identity_card_number = ?",
+        "SELECT * FROM personal_info WHERE identity_card = ?",
         [identityCard]
       );
       return rows[0];
