@@ -7,7 +7,7 @@ class FamilyMember {
         `
         SELECT * FROM family_members 
         WHERE personal_info_id = ?
-        ORDER BY relationship, date_of_birth
+        ORDER BY relationship, name
       `,
         [personalInfoId]
       );
@@ -35,21 +35,17 @@ class FamilyMember {
     try {
       const insertQuery = `
         INSERT INTO family_members (
-          personal_info_id, name, relationship, date_of_birth, 
-          school_name, grade, quran_madrasa, occupation, contact_number
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+          personal_info_id, name, relationship, age, occupation, notes
+        ) VALUES (?, ?, ?, ?, ?, ?)
       `;
 
       const values = [
         familyMemberData.personal_info_id,
         familyMemberData.name,
         familyMemberData.relationship,
-        familyMemberData.date_of_birth,
-        familyMemberData.school_name,
-        familyMemberData.grade,
-        familyMemberData.quran_madrasa,
-        familyMemberData.occupation,
-        familyMemberData.contact_number,
+        familyMemberData.age || null,
+        familyMemberData.occupation || null,
+        familyMemberData.notes || null,
       ];
 
       const [result] = await pool.execute(insertQuery, values);
@@ -64,21 +60,16 @@ class FamilyMember {
     try {
       const updateQuery = `
         UPDATE family_members SET 
-          name = ?, relationship = ?, date_of_birth = ?, 
-          school_name = ?, grade = ?, quran_madrasa = ?, 
-          occupation = ?, contact_number = ?
+          name = ?, relationship = ?, age = ?, occupation = ?, notes = ?
         WHERE id = ?
       `;
 
       const values = [
         familyMemberData.name,
         familyMemberData.relationship,
-        familyMemberData.date_of_birth,
-        familyMemberData.school_name,
-        familyMemberData.grade,
-        familyMemberData.quran_madrasa,
-        familyMemberData.occupation,
-        familyMemberData.contact_number,
+        familyMemberData.age || null,
+        familyMemberData.occupation || null,
+        familyMemberData.notes || null,
         id,
       ];
 

@@ -845,7 +845,7 @@ router.get("/personal-info/create", (req, res) => {
                                             <label for="sandha_amount" class="form-label">Sandha Amount</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">Rs.</span>
-                                                <input type="number" class="form-control" id="sandha_amount" name="sandha_amount" step="0.01" min="0">
+                                                <input type="number" class="form-control" id="sandha_amount" name="sandha_amount" step="0.01" min="0" value="300.00">
                                             </div>
                                         </div>
                                     </div>
@@ -1491,10 +1491,9 @@ router.get(
                                           <tr>
                                               <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Name</th>
                                               <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Relationship</th>
-                                              <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Date of Birth</th>
-                                              <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">School/Education</th>
+                                              <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Age</th>
                                               <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Occupation</th>
-                                              <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Contact</th>
+                                              <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;">Notes</th>
                                               <th style="border: 1px solid #dee2e6; padding: 0.75rem; text-align: center;" width="120">Actions</th>
                                           </tr>
                                       </thead>
@@ -1524,56 +1523,13 @@ router.get(
                                                       </span>
                                                   </td>
                                                   <td>${
-                                                    member.date_of_birth
-                                                      ? new Date(
-                                                          member.date_of_birth
-                                                        ).toLocaleDateString()
-                                                      : "N/A"
-                                                  }</td>
-                                                  <td>
-                                                      ${
-                                                        member.school_name &&
-                                                        member.school_name !==
-                                                          "N/A"
-                                                          ? `${member.school_name}`
-                                                          : ""
-                                                      }
-                                                      ${
-                                                        member.grade &&
-                                                        member.grade !== "N/A"
-                                                          ? ` (${member.grade})`
-                                                          : ""
-                                                      }
-                                                      ${
-                                                        member.quran_madrasa &&
-                                                        member.quran_madrasa !==
-                                                          "N/A"
-                                                          ? `<br><small class="text-muted">Quran: ${member.quran_madrasa}</small>`
-                                                          : ""
-                                                      }
-                                                      ${
-                                                        (!member.school_name ||
-                                                          member.school_name ===
-                                                            "N/A") &&
-                                                        (!member.grade ||
-                                                          member.grade ===
-                                                            "N/A") &&
-                                                        (!member.quran_madrasa ||
-                                                          member.quran_madrasa ===
-                                                            "N/A")
-                                                          ? "N/A"
-                                                          : ""
-                                                      }
-                                                  </td>
-                                                  <td>${
-                                                    member.occupation &&
-                                                    member.occupation !== "N/A"
-                                                      ? member.occupation
-                                                      : "N/A"
+                                                    member.age || "N/A"
                                                   }</td>
                                                   <td>${
-                                                    member.contact_number ||
-                                                    "N/A"
+                                                    member.occupation || "N/A"
+                                                  }</td>
+                                                  <td>${
+                                                    member.notes || "N/A"
                                                   }</td>
                                                   <td>
                                                       <div class="btn-group btn-group-sm" role="group">
@@ -1602,7 +1558,7 @@ router.get(
                                             .join("")}
                                           ${
                                             familyMembers.length === 0
-                                              ? '<tr><td colspan="7" class="text-center">No family members found</td></tr>'
+                                              ? '<tr><td colspan="6" class="text-center">No family members found</td></tr>'
                                               : ""
                                           }
                                       </tbody>
