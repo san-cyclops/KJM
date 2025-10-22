@@ -68,10 +68,10 @@ module.exports = {
     autorestart: true,
     watch: false,
     max_memory_restart: '1G',
-    env: {
+    env_production: {
       NODE_ENV: 'production',
       PORT: 3000,
-      DB_HOST: 'kjm.cfyeiqomyb7l.ap-south-1.rds.amazonaws.com',
+      DB_HOST: 'localhost',
       DB_PORT: 3306,
       DB_NAME: 'masjid',
       DB_USER: 'admin',
@@ -90,7 +90,7 @@ mkdir -p /home/ubuntu/dev/logs
 
 # Start application with PM2
 echo "Starting application with PM2..."
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.js --env production
 pm2 save
 pm2 startup ubuntu -u ubuntu --hp /home/ubuntu | grep sudo | bash || true
 

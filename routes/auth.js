@@ -64,7 +64,7 @@ router.post("/login", redirectIfAuthenticated, async (req, res) => {
     console.log("Session created with user:", req.session.user.username);
     console.log("Session ID:", req.sessionID);
 
-    // Force session save and then redirect
+    // Save session and redirect
     req.session.save((err) => {
       if (err) {
         console.error("Session save error:", err);
@@ -74,14 +74,8 @@ router.post("/login", redirectIfAuthenticated, async (req, res) => {
         });
       }
 
-      console.log("Session saved successfully. Session ID:", req.sessionID);
-      console.log("User in session after save:", req.session.user?.username);
-
-      // Small delay to ensure session is persisted
-      setTimeout(() => {
-        console.log("Redirecting to dashboard for:", user.username);
-        res.redirect("/admin/dashboard");
-      }, 100);
+      console.log("Session saved successfully. Redirecting to dashboard");
+      res.redirect("/admin/dashboard");
     });
   } catch (error) {
     console.error("Login error:", error);
